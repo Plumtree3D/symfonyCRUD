@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %} Homepage |{% endblock %}
-        {% block content %}
+{% block content %}
 
     
     <div class="container">
+    <div class="row">
         {% for project in projects %}
-        <a href="{{ path('read_project', {'id': project.id}) }}">
-        <div class="row">
+        
+        <a href="{{ path('read_project', {'id': project.id}) }}" class="black-text">
+        
 
             <div class="col s12 m6">
                 <div class="card medium">
@@ -23,15 +25,23 @@
                 <div class="card-action">
                     <a href="{{ project.weblink }}" class="pink-text text-accent-1"><i class="material-icons">public</i> Weblink</a>
                     <a href="{{ project.github }}" class="pink-text text-accent-1"><i class="material-icons ">rocket_launch</i> GitHub</a>
-                    <a href="{{ path('edit_project', {'id': project.id}) }}" class="btn-floating btn-small pink accent-1"> <i class="large material-icons">mode_edit</i> </a> 
+                    {% if app.user %}
+                        <a href="{{ path('edit_project', {'id': project.id}) }}" class="btn-floating btn-small teal lighten-4"> <i class="large material-icons">mode_edit</i> </a>
+                        <a href="{{ path('edit_project', {'id': project.id}) }}" class="btn-floating btn-small red accent-2"> <i class="large material-icons">delete</i> </a>
+
+                    {% endif %} 
 
                 </div>
             </div>
 
         </div>
         </a>
+        
+
         {% endfor %}
+        </div>
     </div>
+
             
 {% endblock %}
 
