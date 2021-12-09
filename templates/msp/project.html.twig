@@ -3,18 +3,25 @@
 {% block title %}{{ project.title }}{% endblock %}
 
 {% block content %}
-    <article class="container">
+    <article class="container " style="flex: 1 0 auto;">
         <div class="row">
-            <div class="col s12 m12 l8 offset-l2">
+            <div class="col l8 s12">
                 <h2>{{ project.title }}</h2>
-                    <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img">
+                    
             </div>
+        <div class="center-align"> 
+        <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img center-align">
+        </div>
         </div>
         <div class="row">
-            <div class="col s12 m12 l8 offset-l2">
                 <p>
                     {{ project.description }}
                 </p>
-            </div>
+
+        <div class="row">
+            <span> Check the project :<a href="{{ project.weblink }}" class=""> {{ project.weblink }} </a></span> <br>
+            <span> GitHub Repository :<a href="{{ project.github }}" class=""> {{ project.github }} </a></span>
+                    
+        </div>
     </article>
 {% endblock %}
