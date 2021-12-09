@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ parent() }} Write a project{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <h4> Write a project</h4>
+            </div>
+        </div>
+        {% include "includes/project_form.html.twig" %}
+    </div>
+{% endblock %}

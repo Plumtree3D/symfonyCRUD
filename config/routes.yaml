@@ -1,3 +1,19 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+homepage:
+   path: /
+   controller: App\Controller\MSPController::index
+
+add_project:
+   path: /add
+   controller: App\Controller\MSPController::add
+
+read_project:
+   path: /read/{id}
+   controller: App\Controller\MSPController::read
+
+edit_project:
+   path: /edit/{id}
+   controller: App\Controller\MSPController::edit

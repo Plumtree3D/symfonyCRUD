@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Edit this project{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <h4>Edit project {{ project.title }} </h4>
+                {% if project.image is not null %}
+                    <img width="300" src="{{ asset('uploads/' ~ project.image) }}">
+                {% endif %}
+            </div>
+        </div>
+        {% include "includes/project_form.html.twig" %}
+    </div>
+{% endblock %}

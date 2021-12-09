@@ -1,0 +1,27 @@
+{{ form_start(form, {'attr': {'class': 'row'}}) }}
+
+    <div class="input-field col s12 m6 l6">
+        {{ form_widget(form.title, {'attr': {'placeholder': 'Titre de l\'article'}}) }}
+        <span class="error">{{ form_errors(form.title) }}</span>
+    </div>
+
+    <div class="input-field col s12 m12 l12">
+        {{ form_widget(form.image) }}
+    </div>
+
+
+    <div class="input-field col s12 m12 l12">
+        {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Le contenu de l\'article'}}) }}
+    </div>
+
+    <div class="input-field col s6 m6 l6">
+        {{ form_widget(form.github, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Lien Github'}}) }}
+    </div>
+    <div class="input-field col s6 m6 l6">
+        {{ form_widget(form.weblink, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Lien internet'}}) }}
+    </div>
+
+    <div class="input-field col s12 m12 l12">
+        <input  type="submit" name="" value="Enregistrer" class="btn btn-primary pink accent-1">
+    </div>
+{{ form_end(form) }}

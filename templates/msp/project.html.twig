@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+    <article class="container">
+        <div class="row">
+            <div class="col s12 m12 l8 offset-l2">
+                <h2>{{ project.title }}</h2>
+                    <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l8 offset-l2">
+                <p>
+                    {{ project.description }}
+                </p>
+            </div>
+    </article>
+{% endblock %}
