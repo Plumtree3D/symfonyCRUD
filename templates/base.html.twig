@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %} {% endblock %} My Sweet Portfolio</title>
+        <title>{% block title %} {% endblock %} | My Sweet Portfolio</title>
         <meta name="description" content="This a fake portfolio I made to learn how to use Symfony! ">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="{{ asset('icons/favicon.png') }}"
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -41,7 +42,7 @@
             <div class="row">
               <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <p class="grey-text text-lighten-4">This a fake portfolio I made to learn how to use Symfony!</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text"> Contact me </h5>
