@@ -36,6 +36,12 @@ class User implements UserInterface
      */
     private $password;
 
+    public function addRoles(string $roles): self {
+        if (!in_array($roles, $this->roles)) {
+            $this->roles[] = $roles;
+        }
+    }
+
     public function getId(): ?int
     {
         return $this->id;

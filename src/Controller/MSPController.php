@@ -5,7 +5,10 @@ namespace App\Controller;
 
 use App\Entity\Project;
 use App\Form\ProjectType;
+use App\Entity\PresCard;
+use App\Form\PresCardType;
 use App\Repository\ProjectRepository;
+use App\Repository\PresCardRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -107,4 +110,42 @@ class MSPController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    public function card(Project $project, Request $request)
+    {
+        $oldImage = $project->getImage();
+
+        $form = $this->createForm(ProjectType::class, $project);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            if ($project->getImage() != null) {
+                $file = $form->get('image')->getData();
+                $fileName = uniqid(). '.' .$file->guessExtension();
+
+                try {
+                    $file->move(
+                        $this->getParameter('images_directory'), $fileName);
+                } catch (FileException $e) {
+                    return new Response($e->getMessage());
+                }
+                $project->setImage($fileName);
+            } else {
+                $project->setImage($oldImage);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($project);
+            $em->flush();
+
+            return new Response('Saved project 🐀');
+        }
+
+        return $this->render('msp/edit.html.twig', [
+            'project' => $project,
+            'form' => $form->createView()
+        ]);
+    }
+
+
 }

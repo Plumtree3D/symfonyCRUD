@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="container" style="flex: 1 0 auto;>
+    {{ form_start(form, {'attr': {'class': 'row'}}) }}
+        <div class="input-field col s12 m12 l12">
+            {{ form_widget(form.picture) }}
+        </div>
+
+        <div class="input-field col s12 m6 l6">
+            {{ form_widget(form.name, {'attr': {'placeholder': 'Welcome ! I\'m....'}}) }}
+        </div>
+
+        <div class="input-field col s12 m12 l12">
+            {{ form_widget(form.bio, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Short presentation'}}) }}
+        </div>
+
+
+        <div class="input-field col s12 m12 l12">
+            <input type="submit" name="" value="Enregistrer" class="btn btn-primary">
+        </div>
+    {{ form_end(form) }}
+</div>    
+{% endblock %}
