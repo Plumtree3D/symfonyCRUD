@@ -33,18 +33,18 @@
 
                     <div class="card-image">
                         <div class="deep-purple darken-3">
-                            <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img" alt="{{ project.title }}" style="opacity: 0.8">
+                            <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img" alt="{{ project.title }}" style="opacity: 0.8;">
                         </div>
-                        <span class="card-title">{{ project.title }}</span>
+                        <span class="card-title" style="text-transform: capitalize "> <b> {{ project.title }} </b> </span>
                     </div>
 
                     <div class="card-content">
-                        <p>{{ project.description|slice(0, 173) }}... </p>
+                        <p> {{ project.description|striptags|slice(0, 175)|raw }}... </p>
 
                     </div>
                 <div class="card-action deep-purple lighten-2" style="display: flex;">
-                    <a href="{{ project.weblink }}" class="valign-wrapper white-text"><i class="material-icons">public</i> Weblink</a>
-                    <a href="{{ project.github }}" class="valign-wrapper white-text"><i class="material-icons ">rocket_launch</i> GitHub</a>
+                    <a href="{{ project.weblink }}" class="valign-wrapper white-text"><i class="material-icons">public</i> &nbsp; Weblink</a>
+                    <a href="{{ project.github }}" class="valign-wrapper white-text"><i class="material-icons ">rocket_launch</i> &nbsp; GitHub</a>
                     {% if app.user %}
                         <a href="{{ path('edit_project', {'id': project.id}) }}" class="btn-floating btn-small light-blue lighten-3" style="margin-left: auto;"> <i class="large material-icons">mode_edit</i> </a>
                     {% endif %} 

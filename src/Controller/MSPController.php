@@ -10,6 +10,7 @@ use App\Form\PresCardType;
 use App\Repository\ProjectRepository;
 use App\Repository\PresCardRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,7 @@ class MSPController extends AbstractController
     public function index(ProjectRepository $repo): Response
     {
         $repo = $this->getDoctrine()->getRepository(Project::class); 
-        $projects = $repo->findAll();
+        $projects = $repo->findBy( [], ['id' => 'DESC']);
 
         dump($projects);    
 
@@ -58,7 +59,7 @@ class MSPController extends AbstractController
             $em->persist($project);
             $em->flush();
 
-            return new Response('Saved project 🐀');
+            return $this->redirectToRoute("read_project", ['id'=> $project->getId()]);
         }
 
         return $this->render('msp/add.html.twig', [
@@ -102,7 +103,7 @@ class MSPController extends AbstractController
             $em->persist($project);
             $em->flush();
 
-            return new Response('Saved project 🐀');
+            return $this->redirectToRoute("read_project", ['id'=> $project->getId()]);
         }
 
         return $this->render('msp/edit.html.twig', [
@@ -152,7 +153,8 @@ class MSPController extends AbstractController
         $em->remove($project);
         $em->flush();
 
-        return new Response('Deleted project 🐀');
+
+        return $this->redirectToRoute("homepage");
     }
 
 

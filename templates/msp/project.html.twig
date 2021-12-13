@@ -9,15 +9,12 @@
                 <h2>{{ project.title }}</h2>
                     
             </div>
-        <div class="center-align"> 
-        <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img center-align">
+        <div class="center-align" style="max-width: 800px"> 
+            <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img">
         </div>
         </div>
-        <div class="row">
-                <p>
-                    {{ project.description }}
-                </p>
-
+        <div class="row">     
+                    {{ project.description|raw }}
         <div class="row">
             <span> Check the project :<a href="{{ project.weblink }}" class=""> {{ project.weblink }} </a></span> <br>
             <span> GitHub Repository :<a href="{{ project.github }}" class=""> {{ project.github }} </a></span>

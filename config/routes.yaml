@@ -18,9 +18,9 @@ edit_project:
    path: /edit/{id}
    controller: App\Controller\MSPController::edit
 
-card:
-   path: /card
-   controller: App\Controller\MSPController::card
+# card:
+#    path: /card
+#    controller: App\Controller\MSPController::card
 
 delete_project:
    path: /delete/{id}

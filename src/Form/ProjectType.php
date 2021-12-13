@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class ProjectType extends AbstractType
 {
@@ -18,7 +19,7 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, ['required' => false])
-            ->add('description', TextareaType::class, ['required' => false])
+            ->add('description', CKEditorType::class, ['required' => false])
             ->add('image', FileType::class, ['required' => false, 'data_class' => null])
             ->add('github', TextType::class, ['required' => false])
             ->add('weblink', TextType::class, ['required' => false])

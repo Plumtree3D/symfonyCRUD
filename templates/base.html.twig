@@ -23,7 +23,7 @@
     <div class="navbar">
         <nav>
             <div class="nav-wrapper deep-purple lighten-2">
-            <a href='{{ path('homepage')}}' class="brand-logo center">My Sweet Portfolio</a>
+            <a href='{{ path('homepage')}}' class="brand-logo center" id="pageTitle">My Sweet Portfolio</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
             {% if app.user %}
                 <li> <span> Hi {{ app.user.username }}! </span>
@@ -42,22 +42,22 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
+                <h5 class="white-text"> My Sweet Portfolio</h5>
                 <p class="grey-text text-lighten-4">This is a fake portfolio I made to learn how to use Symfony!</p>
               </div>
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text"> Contact me </h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="ilanr.promo-93.codeur.online">Portfolio</a></li>
-                  <li><a class="grey-text text-lighten-3" href="www.linkedin.com/in/c%C3%A9leste-robert-casals/">LinkedIn</a></li>
-                  <li><a class="grey-text text-lighten-3" href="github.com/Plumtree3D">Github</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://ilanr.promo-93.codeur.online" target="_blank">Portfolio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/c%C3%A9leste-robert-casals/" target="_blank">LinkedIn</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/Plumtree3D" target="_blank">Github</a></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
+            © 2021 Copyright Text
             <a class="grey-text text-lighten-4 right" href="#!">Terms & Privacy</a>
             </div>
           </div>
@@ -68,6 +68,9 @@
 <script>
 btn = document.getElementById('modal1')
 
+
+
+
  function modal() {
      btn.style.display = "block"
  }
@@ -76,6 +79,7 @@ btn = document.getElementById('modal1')
    btn.style.display = "none"
 
  }
+
 </script>
 
 
