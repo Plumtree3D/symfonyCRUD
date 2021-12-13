@@ -111,40 +111,48 @@ class MSPController extends AbstractController
         ]);
     }
 
-    public function card(Project $project, Request $request)
-    {
-        $oldImage = $project->getImage();
+    // public function card(Project $project, Request $request)
+    // {
+    //     $oldImage = $project->getImage();
 
-        $form = $this->createForm(ProjectType::class, $project);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+    //     $form = $this->createForm(ProjectType::class, $project);
+    //     $form->handleRequest($request);
+    //     if ($form->isSubmitted() && $form->isValid()) {
 
-            if ($project->getImage() != null) {
-                $file = $form->get('image')->getData();
-                $fileName = uniqid(). '.' .$file->guessExtension();
+    //         if ($project->getImage() != null) {
+    //             $file = $form->get('image')->getData();
+    //             $fileName = uniqid(). '.' .$file->guessExtension();
 
-                try {
-                    $file->move(
-                        $this->getParameter('images_directory'), $fileName);
-                } catch (FileException $e) {
-                    return new Response($e->getMessage());
-                }
-                $project->setImage($fileName);
-            } else {
-                $project->setImage($oldImage);
-            }
+    //             try {
+    //                 $file->move(
+    //                     $this->getParameter('images_directory'), $fileName);
+    //             } catch (FileException $e) {
+    //                 return new Response($e->getMessage());
+    //             }
+    //             $project->setImage($fileName);
+    //         } else {
+    //             $project->setImage($oldImage);
+    //         }
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($project);
-            $em->flush();
+    //         $em = $this->getDoctrine()->getManager();
+    //         $em->persist($project);
+    //         $em->flush();
 
-            return new Response('Saved project 🐀');
-        }
+    //         return new Response('Saved project 🐀');
+    //     }
 
-        return $this->render('msp/edit.html.twig', [
-            'project' => $project,
-            'form' => $form->createView()
-        ]);
+    //     return $this->render('msp/edit.html.twig', [
+    //         'project' => $project,
+    //         'form' => $form->createView()
+    //     ]);
+    // }
+
+    public function delete(Project $project, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($project);
+        $em->flush();
+
+        return new Response('Deleted project 🐀');
     }
 
 

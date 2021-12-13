@@ -16,6 +16,7 @@
         {% endblock %}
 
         {% block javascripts %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         {% endblock %}
 </head>
 <body style="display: flex; min-height: 100vh; flex-direction: column;">
@@ -37,7 +38,7 @@
         {% block content %}{% endblock %}
 </div>
 
-        <footer class="page-footer deep-purple lighten-3">
+        <footer class="page-footer deep-purple lighten-2">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -47,8 +48,9 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text"> Contact me </h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">LinkedIn</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+                  <li><a class="grey-text text-lighten-3" href="ilanr.promo-93.codeur.online">Portfolio</a></li>
+                  <li><a class="grey-text text-lighten-3" href="www.linkedin.com/in/c%C3%A9leste-robert-casals/">LinkedIn</a></li>
+                  <li><a class="grey-text text-lighten-3" href="github.com/Plumtree3D">Github</a></li>
                 </ul>
               </div>
             </div>
@@ -59,6 +61,26 @@
             <a class="grey-text text-lighten-4 right" href="#!">Terms & Privacy</a>
             </div>
           </div>
-        </footer>    
+        </footer>
+
+
+
+<script>
+btn = document.getElementById('modal1')
+
+ function modal() {
+     btn.style.display = "block"
+ }
+
+ function closeModal() {
+   btn.style.display = "none"
+
+ }
+</script>
+
+
+
+
+
 </body>
 </html>

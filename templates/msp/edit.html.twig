@@ -1,12 +1,27 @@
 {% extends "base.html.twig" %}
 
+
+
 {% block title %}Edit this project{% endblock %}
 
 {% block content %}
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="z-index: 10;">
+    <div class="modal-content">
+        <h4> You are about to delete something</h4>
+        <p>Are you sure you want to delete {{  project.title }} ? No undo.</p>
+    </div>
+    <div class="modal-footer">
+        <a id="closeModal" class="indigo lighten-2 waves-effect waves-light btn" onclick="closeModal()"><i class="right-align material-icons left">arrow_back</i> Cancel </a>
+        <a href="{{ path('delete_project', {'id': project.id}) }}" class="red darken-1 waves-effect waves-light btn"><i class="right-align material-icons left">delete</i>Delete</a>
+    </div>
+</div>
+
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
-                <h4>Edit project {{ project.title }} </h4>
+                <h4>Edit project {{ project.title }} <a  onclick="modal()" class="red darken-1 waves-effect waves-light btn"><i class="right-align material-icons left">delete</i>Delete</a></h4> 
                 {% if project.image is not null %}
                     <img width="300" src="{{ asset('uploads/' ~ project.image) }}">
                 {% endif %}
@@ -14,4 +29,10 @@
         </div>
         {% include "includes/project_form.html.twig" %}
     </div>
-{% endblock %}
+
+
+
+
+
+{% endblock %} 
+

@@ -24,4 +24,5 @@ card:
 
 delete_project:
    path: /delete/{id}
+   controller: App\Controller\MSPController::delete
    
