@@ -41,6 +41,6 @@ security:
     access_control:
         - { path: ^/edit, roles: ROLE_USER }
         - { path: ^/add, roles: ROLE_USER }
-        - { path: ^/register, roles: ROLE_USER }
-        - { path: ^/register, roles: ROLE_USER }
+        # - { path: ^/register, roles: ROLE_USER }
+        # - { path: ^/register, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
