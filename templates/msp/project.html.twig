@@ -4,21 +4,19 @@
 
 {% block content %}
     <article class="container">
+        <div class="bg-image">
+            <img src="{{ asset('uploads/' ~ project.image) }}" class="article-img">
+            <h2>{{ project.title }}</h2>
+        </div>
+
         <div class="row">
-            <div class="col l8 s12">
-                <h2>{{ project.title }}</h2>
-                    
+            <div class="col s12 l10">
+                {{ project.description|raw }}
             </div>
-        <div class="center-align" style="max-width: 800px"> 
-            <img src="{{ asset('uploads/' ~ project.image) }}" class="responsive-img">
-        </div>
-        </div>
-        <div class="row">     
-                    {{ project.description|raw }}
-        <div class="row">
-            <span> Check the project :<a href="{{ project.weblink }}" class=""> {{ project.weblink }} </a></span> <br>
-            <span> GitHub Repository :<a href="{{ project.github }}" class=""> {{ project.github }} </a></span>
-                    
+            <div class="col s12 l2">
+                <a href="{{ project.weblink }}" class="waves-effect deep-purple lighten-2 btn-large"><i class="material-icons left">public</i> Web Link</a>
+                <a <a href="{{ project.github }}" class="waves-effect  deep-purple lighten-2 btn-large"><i class="material-icons left">rocket_launch</i> Github </a>
+            </div>
         </div>
     </article>
 {% endblock %}
