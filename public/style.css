@@ -19,7 +19,7 @@
 .bg-image {
     position: relative;
     background-color: rgb(40, 15, 44);
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .bg-image h2 {
@@ -31,6 +31,10 @@
     transform: translate(-50%, -50%);
     text-align: center;
     text-shadow: 0 0 0.2em rgb(0, 0, 0);
+}
+
+.piano {
+    max-width: 190px;
 }
 
 .btn-large {
